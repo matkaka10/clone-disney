@@ -22,10 +22,21 @@ const getMovieByGenreId = (genreId) => {
         }
     })
 }
+
+const getMoviesTending = () => {
+    return axios.get(
+        `${movieBaseUrl}/trending/movie/{time_window}`, {
+            params :
+            {
+                api_key: apiKey
+            }
+        }
+    )
+}
  
 const GlobalApi = {
     getTrendingVideos,
     getMovieByGenreId
 }
 
-export default GlobalApi;
+export default GlobalApi

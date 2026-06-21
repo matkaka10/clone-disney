@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-import GenresList from '../constant/GenresList'
-import GlobalApi from '../Services/GlobalApi'
+import GenresList from '../../constant/GenresList'
+import GlobalApi from '../../Services/GlobalApi'
 import MovieList from './MovieList'
 
 const MovieByGenre = ({ genre }) => {

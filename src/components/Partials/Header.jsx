@@ -1,36 +1,44 @@
 import React, {useState} from 'react'
-import logo from '../assets/Images/logo.png'
+import logo from '../../assets/Images/logo.png'
 import { HiHome, HiMagnifyingGlass, HiStar, HiPlayCircle, HiTv } from 'react-icons/hi2'
 import { HiPlus, HiDotsVertical } from 'react-icons/hi'
 import HeaderItem from './HeaderItem'
+// Nav handled inside HeaderItem; no direct Link import needed here
 
 
 const Header = () => {
   const [toggle, setToggle] = (useState(false))
-  const menu=[
+  const [searchBar, setSearchbar] = (useState(false))
+    const menu=[
     {
       name:'HOME',
       icon:HiHome,
+      navLink:'/'
     },
     {
       name:'SEARCH',
       icon:HiMagnifyingGlass,
+      navLink:'/search'
     },
     {
       name:'WATCHLIST',
       icon:HiPlus,
+      navLink:'/watchlist'
     },
     {
       name:'ORIGINALS',
       icon:HiStar,
+      navLink:'/originals'
     },
     {
       name:'MOVIES',
       icon:HiPlayCircle,
+      navLink:'/movies'
     },
     {
       name:'Series',
       icon:HiTv,
+      navLink:'/series'
     }
   ]
   return (
@@ -58,7 +66,17 @@ const Header = () => {
           gap-8
           '>
             {menu.map((item)=>(
-              <HeaderItem  key={item.name} name={item.name} Icon={item.icon} />
+              <HeaderItem  
+              key={item.name} 
+              name={item.name} 
+              Icon={item.icon}
+              navLink={item.icon === 'SEARCH' ? null : item.navLink} 
+                onClick= {
+                  item.name === 'SEARCH' 
+                  ? () => setSearchbar((prev) => !prev)
+                  : undefined
+                }
+              />
             ))}
           </div>
           <div className='
@@ -69,12 +87,23 @@ const Header = () => {
             {menu.map((item,index)=>index<3&&(
               <HeaderItem  
                 key={item.name} 
-                name={''} Icon={item.icon} />
+                name={''} 
+                Icon={item.icon}
+                navLink={item.name === 'SEARCH' ? null : item.navLink} 
+                  onClick= {
+                    item.name === 'SEARCH'
+                    ? () => setSearchbar((prev) => !prev)
+                    :undefined
+                  }
+                />
             ))}
             <div 
               className='md:hidden' 
               onClick={()=> setToggle(!toggle)}>
-                <HeaderItem name={''} Icon={HiDotsVertical} />
+                <HeaderItem 
+                name={''} 
+                Icon={HiDotsVertical}
+                navLink={null} />
                 {toggle? <div className='
                               absolute 
                               mt-3 
@@ -85,15 +114,32 @@ const Header = () => {
                               px-5 
                               py-4 
                               rounded-lg
+                              z-10
                               '>
                   {menu.map((item, index)=>index>2&&(
-                    <HeaderItem  name={item.name} Icon={item.icon} />
+                    <HeaderItem  
+                    key={item.name}
+                    name={item.name} 
+                    Icon={item.icon}
+                    navLink={item.navLink} />
                   ))}
               </div> : null}
+             
             </div>
           </div>
       </div>
-      <img src="https://www.magnific.com/icon/cat_8158469#fromView=keyword&page=1&position=16&uuid=9f639347-b00a-4aba-80d0-2f672023daaa"
+       <div className=''>
+                  {searchBar && (
+                    <input className='
+                            w-52 rounded-md bg-gray-800 px-4 py-2 text-white outline-none'
+                    type='text'
+                    placeholder='Cari Apa?'
+                    autoFocus
+                    />
+
+                  )}
+      </div>
+      <img src={null} 
         className='w-[40px] rounded-full'
       />
     </div>

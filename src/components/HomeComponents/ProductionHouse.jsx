@@ -1,15 +1,15 @@
 import React from 'react'
-import disney from '../assets/Images/disney.png'
-import marvel from '../assets/Images/marvel.png'
-import pixar from '../assets/Images/pixar.png'
-import starwars from '../assets/Images/starwar.png'
-import natgeo from '../assets/Images/nationalG.png'
+import disney from '../../assets/Images/disney.png'
+import marvel from '../../assets/Images/marvel.png'
+import pixar from '../../assets/Images/pixar.png'
+import starwars from '../../assets/Images/starwar.png'
+import natgeo from '../../assets/Images/nationalG.png'
 
-import disneyVideo from '../assets/Videos/disney.mp4'
-import marvelVideo from '../assets/Videos/marvel.mp4'
-import pixarVideo from '../assets/Videos/pixar.mp4'
-import starwarsVideo from '../assets/Videos/star-wars.mp4'
-import natgeoVideo from '../assets/Videos/nationalG.mp4'
+import disneyVideo from '../../assets/Videos/disney.mp4'
+import marvelVideo from '../../assets/Videos/marvel.mp4'
+import pixarVideo from '../../assets/Videos/pixar.mp4'
+import starwarsVideo from '../../assets/Videos/star-wars.mp4'
+import natgeoVideo from '../../assets/Videos/nationalG.mp4'
 
 function ProductionHouse() {
     const productionHouseList = [

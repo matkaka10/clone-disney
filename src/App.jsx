@@ -1,19 +1,20 @@
 import { useState } from 'react'
-import Header from './components/Header'
-import Slider from './components/Slider'
 import './App.css'
-import ProductionHouse from './components/ProductionHouse'
-import GenreMovieList from './components/GenreMovieList'
+import { BrowserRouter,Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Movies from './pages/Movies'
+import Series from './pages/Series'
 
 
 const App = () => {
   return (
-    <div className="">
-      <Header />
-      <Slider />
-      <ProductionHouse />
-      <GenreMovieList />
-    </div>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/movies" element={<Movies />} />
+      <Route path="/series" element={<Series />} />
+    </Routes>
+   </BrowserRouter>
   )
 }
 

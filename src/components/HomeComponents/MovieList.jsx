@@ -1,6 +1,6 @@
 import React from 'react'
 import {useEffect, useState} from 'react'
-import GlobalApi from '../Services/GlobalApi'
+import GlobalApi from '../../Services/GlobalApi'
 import MovieCard from './MovieCard'
 
 
@@ -23,11 +23,14 @@ const MovieList = ({ genreId }) => {
   return (
     <div className='
             flex 
-            overflow-x-auto 
+            overflow-x-auto
             scrollbar-none 
             gap-5 
-            py-3 
-            mt-[-10px]'>
+            py-2
+            mt-[10px]
+            pl-2
+            '>
+        
         {movieList.map((item, index) => {
            return <MovieCard key={item.id} movie={item}/>
         })}
