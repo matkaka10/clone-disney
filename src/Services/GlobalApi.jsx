@@ -33,10 +33,21 @@ const getMoviesTending = () => {
         }
     )
 }
- 
+
+const getSearchMovies = (keyword) => {
+    return axios.get(
+        `${movieBaseUrl}/search/movie` , {
+        params: {
+            api_key: apiKey,
+            query: keyword
+        },
+    }
+    )
+} 
 const GlobalApi = {
     getTrendingVideos,
-    getMovieByGenreId
+    getMovieByGenreId,
+    getSearchMovies
 }
 
 export default GlobalApi

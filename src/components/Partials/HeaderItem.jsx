@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const HeaderItem = ({ name, Icon, navLink, onClick }) => {
+const HeaderItem = ({ name, Icon, navLink }) => {
   const content =  (
     <>
       <div 
-      onClick={onClick}
           className='
           text-white 
           flex 

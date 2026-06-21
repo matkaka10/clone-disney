@@ -8,7 +8,7 @@ import HeaderItem from './HeaderItem'
 
 const Header = () => {
   const [toggle, setToggle] = (useState(false))
-  const [searchBar, setSearchbar] = (useState(false))
+  
     const menu=[
     {
       name:'HOME',
@@ -70,12 +70,7 @@ const Header = () => {
               key={item.name} 
               name={item.name} 
               Icon={item.icon}
-              navLink={item.icon === 'SEARCH' ? null : item.navLink} 
-                onClick= {
-                  item.name === 'SEARCH' 
-                  ? () => setSearchbar((prev) => !prev)
-                  : undefined
-                }
+              navLink={item.navLink} 
               />
             ))}
           </div>
@@ -89,12 +84,8 @@ const Header = () => {
                 key={item.name} 
                 name={''} 
                 Icon={item.icon}
-                navLink={item.name === 'SEARCH' ? null : item.navLink} 
-                  onClick= {
-                    item.name === 'SEARCH'
-                    ? () => setSearchbar((prev) => !prev)
-                    :undefined
-                  }
+                navLink={item.navLink} 
+                  
                 />
             ))}
             <div 
@@ -128,17 +119,7 @@ const Header = () => {
             </div>
           </div>
       </div>
-       <div className=''>
-                  {searchBar && (
-                    <input className='
-                            w-52 rounded-md bg-gray-800 px-4 py-2 text-white outline-none'
-                    type='text'
-                    placeholder='Cari Apa?'
-                    autoFocus
-                    />
-
-                  )}
-      </div>
+       
       <img src={null} 
         className='w-[40px] rounded-full'
       />
